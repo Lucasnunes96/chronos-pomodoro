@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main className='main'>
+        <div id='menu'>
+          <a href='#' id='menu-items'>
+            <span className='menu-item'>H</span>
+            <span className='menu-item'>O</span>
+            <span className='menu-item'>M</span>
+            <span className='menu-item'>E</span>
+          </a>
+          <a href='#' id='menu-items'>
+            <span className='menu-item'>P</span>
+            <span className='menu-item'>A</span>
+            <span className='menu-item'>I</span>
+            <span className='menu-item'>N</span>
+            <span className='menu-item'>E</span>
+            <span className='menu-item'>L</span>
+          </a>
+          <a href='#' id='menu-items'>
+            <span className='menu-item'>M</span>
+            <span className='menu-item'>E</span>
+            <span className='menu-item'>T</span>
+            <span className='menu-item'>O</span>
+            <span className='menu-item'>D</span>
+            <span className='menu-item'>O</span>
+            <span className='menu-item'>L</span>
+            <span className='menu-item'>O</span>
+            <span className='menu-item'>G</span>
+            <span className='menu-item'>I</span>
+            <span className='menu-item'>A</span>
+          </a>
+          <a href='#' id='menu-items'>
+            <span className='menu-item'>S</span>
+            <span className='menu-item'>O</span>
+            <span className='menu-item'>B</span>
+            <span className='menu-item'>R</span>
+            <span className='menu-item'>E</span>
+          </a>
+        </div>
+        <div id='menu-background-pattern'></div>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

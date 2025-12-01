@@ -1,42 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 0;
+  background-color: rgb(20, 20, 20);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.main {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(20, 20, 20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+#menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 2rem;
+  gap: 2rem;
+  z-index: 10;
+}
+
+/* Cada link ocupa apenas o tamanho do conteúdo */
+#menu a {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  text-shadow: 0 clamp(2.1rem, 6.1vw, 6.1rem) 0;
+  transition: opacity 0.3s ease;
+  width: fit-content;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+/* Letra individual */
+.menu-item {
+  font-family: 'Ibarra Real Nova', serif;
+  color: white;
+  font-size: clamp(2rem, 6vw, 6rem);
+  padding: clamp(0.25rem, 0.5vw, 1rem) 0;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Quando o link está em hover, animar suas letras */
+#menu a:hover .menu-item {
+  animation: up 0.3s forwards;
+  animation-delay: calc(sibling-index() * 0.1s);
+}
+
+/* Animação de subir */
+@keyframes up {
   to {
-    transform: rotate(360deg);
+    transform: translateY(-85%);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Apaga todos os links quando mouse entra no menu */
+#menu:hover a {
+  opacity: 0.3;
 }
 
-.card {
-  padding: 2em;
+/* Mantém o link ativo com opacidade cheia */
+#menu a:hover {
+  opacity: 1;
 }
 
-.read-the-docs {
-  color: #888;
+/* Efeito de fundo */
+#menu-background-pattern {
+  height: 100vh;
+  width: 100vw;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.1) 9%,
+    transparent 9%
+  );
+  background-position: 0% 0%;
+  background-size: 12vmin 12vmin;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: opacity 800ms, background-size 800ms;
+}
+
+#menu:hover ~ #menu-background-pattern {
+  background-size: 11vmin 11vmin;
+  opacity: 0.5;
 }
